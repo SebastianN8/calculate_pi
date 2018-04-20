@@ -10,7 +10,7 @@
 # Function
 def calculating_pi():
 	# Variables
-	iterations_input = input('Iterations needed: ')
+	iterations_input = int(input('Iterations needed: '))
 	initial = 0
 	addition = 0
 	pi = 0
