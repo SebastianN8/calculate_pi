@@ -6,24 +6,34 @@
 #
 # This program calculates pi according to iterations
 #
+import math
 
 # Function
-def calculating_pi():
+def calculate_pi(iterations_passed_in):
 	# Variables
-	iterations_input = int(input('Iterations needed: '))
-	initial = 0
+	the_iterations = 0
 	addition = 0
 	pi = 0
 
 	# Loop
-	while (initial is not iterations_input):
-		addition = (addition) + (((-1)**initial)/((2*initial) + 1))
-		initial = initial + 1
-	pi = addition * 4
+	if 	(iterations_passed_in == math.floor(iterations_passed_in)) and iterations_passed_in > 0: 
+		for the_iterations in range (0, iterations_passed_in):
+			the_iterations_float = float(the_iterations)
+			addition = addition + math_calculation(the_iterations_float)
+		pi = (math.floor((addition * 4)*1000))/1000
+		print str(pi)
 
-	return pi 
+	else:
+		print 'Invalid iterations'
 
 
-# Call function
-the_result = calculating_pi()
-print str(the_result)
+def math_calculation(exponent):
+	numerator = ((-1)**exponent)
+	denominator = numerator / ((2*exponent) + 1)
+	return denominator
+
+# Variables
+iterations = input('What are the number of iterations that you need: ')
+
+# Calling function
+the_result = calculate_pi(iterations)
